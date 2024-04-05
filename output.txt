@@ -1,0 +1,79 @@
+version - default 01000000 or 02000000 : ENDIAN SWAP . 4 bytes
+input count - number of unspent transaction sources/accounts
+INPUT
+	txid = transaction hash with input source - little endian? : ENDIAN SWAP . 32 bytes
+	vout - input source vector index within txid passed | 01000000 : ENDIAN SWAP . 4 bytes
+	scriptsig Size will be calculated properly through created function as explained om learnmeabitcoin and shiriffs Bitcoin the Hard way
+	scriptsig - public key to unlock value of coins transferred [one scriptPubKey per transaction] tucked away within the properly formatted DER encoded VarInt unlocking script . VarInt
+	sequence - default | ffffffff : ENDIAN SWAP . 4 bytes
+
+output count - hex count of number of outputs (minimum of 2 - payment + change, leave large transaction fee for miners dynamically or default)
+
+OUTPUT
+	Output_Value - satoshi being sent out | 4baf210000000000 - 6 bytes [reverse endian, convert to decimal to confirm value being sent] : ENDIAN SWAP . 8 bytes
+	scriptPubKey Size - Locking script size | 0x19
+	scriptPubKey - Locking script to attach ownership to publickKey's' signature . VarInt
+
+locktime - default | 00000000 : ENDIAN SWAP . 4 bytes
+
+
+
+version - hardcoded
+input_count - calculated
+txid - json function
+vout - json function
+script_size - pre-calculated
+scriptsig - generated
+sequence - hardcoded
+outputCount - pre-calculated
+Output_Value - calculated
+scriptPubKey_size - calculated
+scriptPubKey - generated
+locktime - hardcoded but can be pre-calculated
+
+
+
+
+TX Version:         01000000 : 8 bytes
+# of Inputs:        01 : 1 - 8 bytes
+Previous TX Hash:   0000000000000000000000000000000000000000000000000000000000000000 - 64 bytes
+Previous Index:     FFFFFFFF : 8 bytes
+Input Script Len:   4D : 2 bytes
+Input Script:       04FFFF001D0104455468652054696D65732030332F4A616E2F32303039204368616E63656C6C6F72206F6E206272696E6B206F66207365636F6E64206261696C6F757420666F722062616E6B73 - 'dynamic' bytes
+Input Sequence:     FFFFFFFF : 16 bytes
+# of Outputs:       01 : 1 - 8 bytes
+Output Value (Sat): 00F2052A01000000 : 16 bytes
+Output Script Len:  43 : 2 bytes
+Output Script:      4104678AFDB0FE5548271967F1A67130B7105CD6A828E03909A67962E0EA1F61DEB649F6BC3F4CEF38C4F35504E51EC112DE5C384DF7BA0B8D578A4C702B6BF11D5FAC : 'dynamic' bytes
+Lock Time:          00000000 : 8 bytes
+
+
+
+v1 = "01000000", v2 = "02000000" , pad = "000000", lk = "00000000", 
+
+
+string TX_Version = ;
+string input_count = ;
+string PrevTxid = ;
+string txVout_index = ;
+string inputScriptLen = ;
+string inputScript = ;
+string sequence = "ffffffff";
+string output_count;
+string output_value;
+string scriptSize;
+string lock_output_script;
+string locktime = lk;
+
+
+
+
+void Dismantle_Transaction()
+{
+	// Extract data from json?
+	// Manual extraction of transaction data
+	// Assembling and disassembling of scriptPub key and other transaction data manually
+}
+
+
+

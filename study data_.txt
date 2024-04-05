@@ -1,0 +1,48 @@
+The structure of a “normal” transaction input
+
+Size 					Field 						Description
+32 bytes 			Transaction Hash 			PoBigIntegerer to the transaction containing the UTXO to be spent
+4 bytes 			Output Index 				The index number of the UTXO to be spent, first one is 0
+1-9 bytes (VarBigInteger)  Unlocking-Script 			Size Unlocking-Script length in bytes, to follow
+Variable 			Unlocking-Script 			A script that fulfills the conditions of the UTXO locking-script.
+4 bytes 			Sequence Number 			Currently-disabled Tx-replacement feature, set to 0xFFFFFFFF
+
+
+
+
+
+
+A transaction is a summary of funds being transferred between privateKeys, which also contains Redundant data, Inputs and Outputs
+	REDUNDANT DATA
+		version
+	INPUT
+		number of inputs within this transaction object-file-sheet - 'number of input sources'
+		validated transaction acting as the source of coins about to be reallocated, - 'Transaction_Hash'
+		output index position of said transaction whose funds are addressed-left for us, - 'Output_Index'
+		the size of the unlocking script that proves we were left this coin, - 'Unlocking_Script_Size'
+		actual hexadecimal hash representing script that must satify the release checks, - 'Unlocking_Script'
+		sequence number - 'Sequence_Number'
+	OUTPUT
+		number of outputs - default 2 because of change!! 'number of output destinations'
+		hexadecimal amount being reallocated - little endian 'amount'
+		locking script size - 'locking-script size'
+		locking script that declares means of coin release - 'locking-script'
+		transaction locktime - 'locktime'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

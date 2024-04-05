@@ -1,0 +1,18 @@
+{
+	"version": 536870912,
+	"previousblockhash": "00000000000000000000000adf85a9f6f388244a210f411bbccc3f2389e1e2e0",
+	"transactions": [
+		{
+			"data": "",
+			"txid": "",
+			"hash": "",
+			"fee": 23456
+		}
+	],
+	"coinbasevalue": 628987391,
+	"target": "0000000000000000b23000000000000000000000000000000000000000000000",
+	"mintime": 1667742628,
+	"curtime": 1667742748,
+	"bits": "1900b230",
+	"height": 11
+}
